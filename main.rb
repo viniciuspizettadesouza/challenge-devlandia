@@ -1,7 +1,8 @@
 #!/bin/ruby
 
-def displayPathtoPrincess(n,grid)
-  return ""
+def display_path_to_princess(n, grid)
+  print(n, grid)
+  return ''
 end
 
 m = gets.to_i
@@ -12,4 +13,4 @@ grid = Array.new(m)
   grid[i] = gets.strip
 end
 
-displayPathtoPrincess(m,grid)
+display_path_to_princess(m, grid)
