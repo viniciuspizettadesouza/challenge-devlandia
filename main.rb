@@ -1,7 +1,12 @@
 #!/bin/ruby
+require 'pry'
 
 def display_path_to_princess(n, grid)
-  print(n, grid)
+  princess = { x: 0, y: 0 }
+  mario = { x: 0, y: 0 }
+
+  two_dimensional = grid.map { |i| i.split(%r{\s*}) }
+
   return ''
 end
 
