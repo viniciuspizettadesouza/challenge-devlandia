@@ -15,6 +15,29 @@ def next_move(n, r, c, grid)
     end
   end
 
+  moved = false
+  until moved == true
+    if mario[:y] < princess[:y] && moved == false
+      mario[:y] += 1
+      puts('DOWN')
+      moved = true
+    end
+    if mario[:y] > princess[:y] && moved == false
+      mario[:y] -= 1
+      puts('UP')
+      moved = true
+    end
+    if mario[:x] < princess[:x] && moved == false
+      mario[:x] += 1
+      puts('RIGHT')
+      moved = true
+    end
+    if mario[:x] > princess[:x] && moved == false
+      mario[:x] -= 1
+      puts('LEFT')
+      moved = true
+    end
+  end
 end
 
 n = gets.to_i
