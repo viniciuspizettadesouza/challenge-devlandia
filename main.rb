@@ -7,6 +7,24 @@ def display_path_to_princess(n, grid)
 
   two_dimensional = grid.map { |i| i.split(%r{\s*}) }
 
+  two_dimensional.map.with_index do |row, row_index|
+    row.map.with_index do |col, col_index|
+      if (col == 'p')
+        princess[:x] = col_index
+        princess[:y] = row_index
+      end
+    end
+  end
+
+  two_dimensional.map.with_index do |row, row_index|
+    row.map.with_index do |col, col_index|
+      if (col == 'm')
+        mario[:x] = col_index
+        mario[:y] = row_index
+      end
+    end
+  end
+
   return ''
 end
 
