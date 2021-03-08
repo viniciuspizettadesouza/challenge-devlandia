@@ -1,14 +1,14 @@
 #!/bin/ruby
 
-def display_path_to_princess(n, grid)
+def display_path_to_princess(_size, grid)
   princess = { x: 0, y: 0 }
   mario = { x: 0, y: 0 }
 
-  two_dimensional = grid.map { |i| i.split(%r{\s*}) }
+  two_dimensional = grid.map { |i| i.split(/\s*/) }
 
   two_dimensional.map.with_index do |row, row_index|
     row.map.with_index do |col, col_index|
-      if (col == 'p')
+      if col == 'p'
         princess[:x] = col_index
         princess[:y] = row_index
       end
@@ -17,7 +17,7 @@ def display_path_to_princess(n, grid)
 
   two_dimensional.map.with_index do |row, row_index|
     row.map.with_index do |col, col_index|
-      if (col == 'm')
+      if col == 'm'
         mario[:x] = col_index
         mario[:y] = row_index
       end
@@ -46,12 +46,12 @@ def display_path_to_princess(n, grid)
   end
 end
 
-m = gets.to_i
+n = gets.to_i
 
-grid = Array.new(m)
+grid = Array.new(n)
 
-(0...m).each do |i|
+(0...n).each do |i|
   grid[i] = gets.strip
 end
 
-display_path_to_princess(m, grid)
+display_path_to_princess(n, grid)
