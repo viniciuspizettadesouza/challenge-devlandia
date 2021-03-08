@@ -1,5 +1,4 @@
 #!/bin/ruby
-require 'pry'
 
 def display_path_to_princess(n, grid)
   princess = { x: 0, y: 0 }
@@ -25,7 +24,26 @@ def display_path_to_princess(n, grid)
     end
   end
 
-  return ''
+  until mario[:x] == princess[:x]
+    if mario[:x] < princess[:x]
+      mario[:x] += 1
+      puts('RIGHT')
+    end
+    if mario[:x] > princess[:x]
+      mario[:x] -= 1
+      puts('LEFT')
+    end
+  end
+  until mario[:y] == princess[:y]
+    if mario[:y] < princess[:y]
+      mario[:y] += 1
+      puts('DOWN')
+    end
+    if mario[:y] > princess[:y]
+      mario[:y] -= 1
+      puts('UP')
+    end
+  end
 end
 
 m = gets.to_i
