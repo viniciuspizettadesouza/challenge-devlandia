@@ -1,4 +1,5 @@
 #!/bin/ruby
+# frozen_string_literal: true
 
 def display_path_to_princess(_size, grid)
   princess = { x: 0, y: 0 }
@@ -6,23 +7,13 @@ def display_path_to_princess(_size, grid)
 
   two_dimensional = grid.map { |i| i.split(/\s*/) }
 
-  two_dimensional.map.with_index do |row, row_index|
-    row.map.with_index do |col, col_index|
-      if col == 'p'
-        princess[:x] = col_index
-        princess[:y] = row_index
-      end
-    end
-  end
+  princess_position = get_position(two_dimensional, 'p')
+  princess[:x] = princess_position.first
+  princess[:y] = princess_position.last
 
-  two_dimensional.map.with_index do |row, row_index|
-    row.map.with_index do |col, col_index|
-      if col == 'm'
-        mario[:x] = col_index
-        mario[:y] = row_index
-      end
-    end
-  end
+  mario_position = get_position(two_dimensional, 'm')
+  mario[:x] = mario_position.first
+  mario[:y] = mario_position.last
 
   until mario[:x] == princess[:x]
     if mario[:x] < princess[:x]
@@ -44,6 +35,19 @@ def display_path_to_princess(_size, grid)
       puts('UP')
     end
   end
+end
+
+def get_position(grid_2d, initial)
+  x, y = 0
+  grid_2d.map.with_index do |row, row_index|
+    row.map.with_index do |col, col_index|
+      if col == initial
+        x = col_index
+        y = row_index
+      end
+    end
+  end
+  [x, y]
 end
 
 n = gets.to_i
